@@ -1,0 +1,23 @@
+.ProfessionalInfoFields {
+	margin: 20px auto;
+	max-width: 30%;
+	position: relative;
+	top: -115pt;
+	box-shadow: 0 2px 3px #ccc;
+	border: 1px solid #ccc;
+	padding: 10px 20px;
+	box-sizing:border-box;
+	border-radius: 1cm;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: space-between;	
+}
+
+@media (min-width: 500px){
+	.ProfessionalInfoFields{
+		width: 500px;
+	}
+}

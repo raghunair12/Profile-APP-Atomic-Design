@@ -1,0 +1,33 @@
+.LinkItems {
+	font-weight: bold;
+	margin-top: 8px;
+	margin-left: -90pt;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: baseline;
+	align-content: space-around;
+}
+
+.LinkItems a{
+	color: rgb(9, 3, 94);
+	text-decoration: none;
+	width:100%;
+	box-sizing: border-box;
+}
+
+.LinkItems a:hover,
+.LinkItems a:active,
+.LinkItems a.active{
+	
+	color:rgb(1, 78, 7); 
+}
+
+.disabledLink {
+	pointer-events: none;
+  }
+
+.enabledLink {
+	pointer-events: auto;
+}

@@ -1,0 +1,6 @@
+.ProfessionalInfoPage {
+    box-shadow: 0 2px 3px #ccc;
+	border: 1px solid #ccc;
+	padding: 10px;
+	box-sizing:border-box;
+}

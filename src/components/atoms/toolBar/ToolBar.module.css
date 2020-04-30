@@ -1,0 +1,13 @@
+.ToolBar{
+	height: 40px;
+	width: 100%;
+	position: relative;
+	top: -5pt;
+	left: 0;
+	background-color: rgb(204, 146, 92);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+}
+
