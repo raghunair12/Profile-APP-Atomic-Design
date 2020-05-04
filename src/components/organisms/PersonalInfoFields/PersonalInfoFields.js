@@ -5,10 +5,10 @@ import classes from './PersonalInfoFields.module.css';
 import {persDetailsConfig} from '../../../constants/PersonalDetailsConfig';
 
 const personalInfoFields = ({ onStorePersonalDetails, persDetails }) => {
-    const onChangeHandler = (event, id) => {
+    const onChangeHandler = (updatedValue, id) => {
         persDetails = {
             ...persDetails,
-            [id]: event.target.value
+            [id]: updatedValue
         }
         onStorePersonalDetails(persDetails);
         const profDetailsLength = (Object.values(persDetails).length - 1).toString()
@@ -51,7 +51,7 @@ const personalInfoFields = ({ onStorePersonalDetails, persDetails }) => {
                             placeholder={placeholder}
                             options={options}
                             value={value}
-                            onChange={(event) => onChangeHandler(event, id)} />
+                            onChange={(updatedValue) => onChangeHandler(updatedValue, id)} />
                     )
                 })
             }
