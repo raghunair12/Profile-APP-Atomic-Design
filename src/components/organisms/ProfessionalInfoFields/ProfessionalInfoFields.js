@@ -6,9 +6,10 @@ import { profDetailsConfig } from '../../../constants/ProfessionalDetailsConfig'
 import classes from './ProfessionalInfoFields.module.css';
 
 const professionalInfoFields = ({ onStoreProfessionalDetails, profDetails }) => {
-    const onChangeHandler = (event, id) => {
+    const onChangeHandler = (updatedValue, id) => {
         profDetails = {
-            [id]: event.target.value
+            ...profDetails,
+            [id]: updatedValue
         }
         onStoreProfessionalDetails(profDetails);
         // const profDetailsLength = (Object.values(profDetails).length - 1).toString()
@@ -54,7 +55,7 @@ const professionalInfoFields = ({ onStoreProfessionalDetails, profDetails }) => 
                             value={value}
                             disabled= {false}
                             defaultValue={profDetails[id]}
-                            onChange={(event) => onChangeHandler(event, id)} />
+                            onChange={(updatedValue) => onChangeHandler(updatedValue, id)} />
                     )
                 })
             }

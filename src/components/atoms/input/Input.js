@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import classes from './Input.module.css';
 import Label from '../label/Label';
 import { inputType } from '../../../constants/CommonConstants';
+import TextInputCell from '../TextInputCell/TextInputCell';
+
 
 const input = ({ type, placeholder, options, name, value, defaultValue, onChange, disabled }) => {
     const inputClasses = [classes.InputElement];
@@ -15,14 +17,22 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
     switch (type) {
         case (inputType.TEXT):
             return (
-                <input type={inputType.TEXT} placeholder={placeholder} defaultValue={defaultValue} 
-                disabled= {disabled} onChange={onChange} className={inputClasses.join(' ')} />
+                <TextInputCell
+                type={inputType.TEXT}
+                placeholder={placeholder}
+                onChange={onChange}
+                value={value}
+                className={inputClasses.join(' ')} 
+                />
             );
 
         case (inputType.SELECT):
             return (
-                <select defaultValue={defaultValue} onChange={onChange} 
-                disabled= {disabled} className={inputClasses.join(' ')}>
+                <select 
+                defaultValue={defaultValue} 
+                onChange={(event) => {onChange(event.target.value)} }
+                className={inputClasses.join(' ')}
+                >
                     {options.map(option => (
                         <option key={option.value} value={option.value}>
                             {option.displayValue}
@@ -33,17 +43,20 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
 
         case (inputType.NUMBER):
             return (
-                <input type={inputType.NUMBER} placeholder={placeholder} defaultValue={defaultValue} 
-                disabled= {disabled} onChange={onChange} className={inputClasses.join(' ')} />
+               <TextInputCell
+                type={inputType.NUMBER}
+                placeholder={placeholder}
+                onChange={onChange}
+                value={value}
+                className={inputClasses.join(' ')} 
+                />
             );
 
         case (inputType.RADIO):
             return (
                 options.map(option => (
                     <React.Fragment key={option.value}>
-                        <input type={inputType.RADIO} name={name} value={option.value} 
-                        disabled= {disabled} checked={defaultValue === option.value?true: false}
-                        onChange={onChange} className={inputClasses.join(' ')} />
+                        <input type={inputType.RADIO} name={option.value} defaultValue={option.defaultValue} onChange={(event) =>onChange(event.target.value)} className={inputClasses.join(' ')} />
                         <Label>{option.displayValue}</Label>
                     </React.Fragment>
                 )
@@ -54,9 +67,13 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
             return (
                 options.map(option => (
                     <React.Fragment key={option.value}>
-                        <input type={inputType.CHECKBOX} name={name} value={option.value} 
-                        disabled= {disabled} checked={defaultValue[option.value]}
-                        onChange={onChange} className={inputClasses.join(' ')} />
+                        <input
+                        type={inputType.CHECKBOX}
+                        name={option.value}
+                        defaultValue={option.displayValue}
+                        onChange={(event) =>onChange(event.target.value)} 
+                        className={inputClasses.join(' ')} 
+                        />
                         <Label>{option.displayValue}</Label>
                     </React.Fragment>
                 )
