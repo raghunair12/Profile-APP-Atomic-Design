@@ -7,22 +7,17 @@ export const persDetailsConfig = {
         options: [
             { value: 'male', displayValue: 'Male' },
             { value: 'female', displayValue: 'Female' }
-        ],
-        onChange: ''
+        ]
     },
     favMovie: {
         labelName: 'Favourite Movie',
         type: inputType.TEXT,
-        placeholder: 'Your Favourite Movie?',
-        value: '',
-        onChange: ''
+        placeholder: 'Your Favourite Movie?'
     },
     phoneNo: {
         labelName: 'Phone Number',
         type: inputType.NUMBER,
-        placeholder: 'Enter your Phone Number',
-        value: '',
-        onChange: ''
+        placeholder: 'Enter your Phone Number'
     },
     favApp: {
         labelName: 'Favourite App',
@@ -30,14 +25,11 @@ export const persDetailsConfig = {
         options: [
             { value: 'whatsapp', displayValue: 'Whatsapp' },
             { value: 'facebook', displayValue: 'Facebook' }
-        ],
-        onChange: ''
+        ]
     },
     weight: {
         labelName: 'Weight',
         type: inputType.NUMBER,
-        placeholder: 'Enter your weight',
-        value: '',
-        onChange: ''
+        placeholder: 'Enter your weight'
     }
 }

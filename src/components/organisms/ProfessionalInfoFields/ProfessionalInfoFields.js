@@ -8,33 +8,32 @@ import classes from './ProfessionalInfoFields.module.css';
 const professionalInfoFields = ({ onStoreProfessionalDetails, profDetails }) => {
     const onChangeHandler = (event, id) => {
         profDetails = {
-            ...profDetails,
             [id]: event.target.value
         }
         onStoreProfessionalDetails(profDetails);
-        const profDetailsLength = (Object.values(profDetails).length - 1).toString()
-        for (let index in Object.values(profDetails)) {
-            if (Object.values(profDetails)[index] !== '') {
-                //continue
-            }
-            else {
-                if (profDetails.nextDisabled === false) {
-                    profDetails = {
-                        ...profDetails,
-                        nextDisabled: true
-                    }
-                    onStoreProfessionalDetails(profDetails);
-                }
-                break;
-            }
-            if (index === profDetailsLength) {
-                profDetails = {
-                    ...profDetails,
-                    nextDisabled: false
-                }
-                onStoreProfessionalDetails(profDetails);
-            }
-        }
+        // const profDetailsLength = (Object.values(profDetails).length - 1).toString()
+        // for (let index in Object.values(profDetails)) {
+        //     if (Object.values(profDetails)[index] !== '') {
+        //         //continue
+        //     }
+        //     else {
+        //         if (profDetails.nextDisabled === false) {
+        //             profDetails = {
+        //                 ...profDetails,
+        //                 nextDisabled: true
+        //             }
+        //             onStoreProfessionalDetails(profDetails);
+        //         }
+        //         break;
+        //     }
+        //     if (index === profDetailsLength) {
+        //         profDetails = {
+        //             ...profDetails,
+        //             nextDisabled: false
+        //         }
+        //         onStoreProfessionalDetails(profDetails);
+        //     }
+        // }
     }
 
     return (
@@ -53,6 +52,7 @@ const professionalInfoFields = ({ onStoreProfessionalDetails, profDetails }) => 
                             placeholder={placeholder}
                             options={options}
                             value={value}
+                            disabled= {false}
                             defaultValue={profDetails[id]}
                             onChange={(event) => onChangeHandler(event, id)} />
                     )

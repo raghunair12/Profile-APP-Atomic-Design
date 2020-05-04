@@ -5,7 +5,7 @@ import classes from './Input.module.css';
 import Label from '../label/Label';
 import { inputType } from '../../../constants/CommonConstants';
 
-const input = ({ type, placeholder, options, name, value, defaultValue, onChange }) => {
+const input = ({ type, placeholder, options, name, value, defaultValue, onChange, disabled }) => {
     const inputClasses = [classes.InputElement];
 
     // if (props.invalid && props.shouldValidate && props.touched) {
@@ -15,12 +15,14 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
     switch (type) {
         case (inputType.TEXT):
             return (
-                <input type={inputType.TEXT} placeholder={placeholder}  defaultValue={defaultValue} onChange={onChange} className={inputClasses.join(' ')} />
+                <input type={inputType.TEXT} placeholder={placeholder} defaultValue={defaultValue} 
+                disabled= {disabled} onChange={onChange} className={inputClasses.join(' ')} />
             );
 
         case (inputType.SELECT):
             return (
-                <select defaultValue={defaultValue} onChange={onChange} className={inputClasses.join(' ')}>
+                <select defaultValue={defaultValue} onChange={onChange} 
+                disabled= {disabled} className={inputClasses.join(' ')}>
                     {options.map(option => (
                         <option key={option.value} value={option.value}>
                             {option.displayValue}
@@ -31,14 +33,17 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
 
         case (inputType.NUMBER):
             return (
-                <input type={inputType.NUMBER} placeholder={placeholder} defaultValue={defaultValue} onChange={onChange} className={inputClasses.join(' ')} />
+                <input type={inputType.NUMBER} placeholder={placeholder} defaultValue={defaultValue} 
+                disabled= {disabled} onChange={onChange} className={inputClasses.join(' ')} />
             );
 
         case (inputType.RADIO):
             return (
                 options.map(option => (
                     <React.Fragment key={option.value}>
-                        <input type={inputType.RADIO} name={option.value} defaultValue={option.defaultValue} onChange={onChange} className={inputClasses.join(' ')} />
+                        <input type={inputType.RADIO} name={name} value={option.value} 
+                        disabled= {disabled} checked={defaultValue === option.value?true: false}
+                        onChange={onChange} className={inputClasses.join(' ')} />
                         <Label>{option.displayValue}</Label>
                     </React.Fragment>
                 )
@@ -49,7 +54,9 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
             return (
                 options.map(option => (
                     <React.Fragment key={option.value}>
-                        <input type={inputType.CHECKBOX} name={option.value} defaultValue={option.displayValue} onChange={onChange} className={inputClasses.join(' ')} />
+                        <input type={inputType.CHECKBOX} name={name} value={option.value} 
+                        disabled= {disabled} checked={defaultValue[option.value]}
+                        onChange={onChange} className={inputClasses.join(' ')} />
                         <Label>{option.displayValue}</Label>
                     </React.Fragment>
                 )
@@ -61,12 +68,12 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
 }
 
 input.propTypes = {
-    type: PropTypes.string.isRequired, 
-    placeholder: PropTypes.string , 
-    options: PropTypes.array , 
-    name: PropTypes.string , 
-    value: PropTypes.string , 
-    defaultValue: PropTypes.string, 
+    type: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    options: PropTypes.array,
+    name: PropTypes.string,
+    value: PropTypes.string,
+    defaultValue: PropTypes.string,
     onChange: PropTypes.func
 }
 

@@ -5,17 +5,24 @@ import Label from '../atoms/label/Label';
 import Input from '../atoms/input/Input';
 
 
-const labelText = ({labelName, type, placeholder, options, name, value, defaultValue, onChange }) => {
+const labelledField = ({ labelName, type, placeholder, options, name, value, defaultValue, onChange, disabled }) => {
     // const {labelName,type,placeholder,options} = props
     return (
         <React.Fragment>
-            <Label>{labelName}</Label>
-            <Input type={type} placeholder={placeholder} options={options} name={name} value={value} defaultValue={defaultValue} onChange={onChange} />
+            <Label> {labelName} </Label>
+            <Input type={type}
+                    placeholder={placeholder}
+                    options={options}
+                    name={name}
+                    value={value}
+                    disabled={disabled}
+                    defaultValue={defaultValue}
+                    onChange={onChange} /> 
         </React.Fragment>
     )
 };
 
-labelText.propTypes = {
+labelledField.propTypes = {
     labelName: PropTypes.string.isRequired,
     type: PropTypes.string,
     placeholder: PropTypes.string,
@@ -25,10 +32,10 @@ labelText.propTypes = {
     onChange: PropTypes.func
 }
 
-labelText.defaultProps = {
+labelledField.defaultProps = {
     labelName: '',
     type: '',
     placeholder: 'Please enter'
 }
 
-export default labelText;
+export default labelledField;

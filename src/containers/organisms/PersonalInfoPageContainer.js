@@ -3,7 +3,7 @@ import PersonalInfoPage from '../../components/pages/PersonalInfoPage/PersonalIn
 
 export const mapStateToProps = state => {
     return{
-        persDetails: state.prof
+        persDetails: state.pers
     }
 }
 

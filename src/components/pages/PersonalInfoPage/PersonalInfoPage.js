@@ -6,16 +6,21 @@ import { PersonalInfoFieldsContainer } from '../../../containers/organisms/Perso
 import Button from '../../atoms/button/Button';
 
 const personalInfoPage = ({ persDetails, history }) => {
-    const onClickHandler = () => {
-        history.push('/pers');
+    const onClickNextHandler = () => {
+        history.push('/review');
+    }
+    const onClickPreviousHandler = () => {
+        history.push('/');
     }
     return (
         <React.Fragment>
             <SubHeader>Personal Details</SubHeader>
             <PersonalInfoFieldsContainer />
             <Button
+                onClick={onClickPreviousHandler}>Previous</Button>
+            <Button
                 disabled={persDetails.nextDisabled}
-                onClick={onClickHandler}>Next</Button>
+                onClick={onClickNextHandler}>Next</Button>
         </React.Fragment>
     );
 }

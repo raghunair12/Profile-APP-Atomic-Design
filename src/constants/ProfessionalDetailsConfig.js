@@ -4,26 +4,17 @@ export const profDetailsConfig = {
     firstName: {
         labelName: 'First Name',
         type: inputType.TEXT,
-        placeholder: 'Enter your first name',
-        valid: true,
-        // value: this.props.profDetails.firstName,
-        // onChange: ''
+        placeholder: 'Enter your first name'
     },
     lastName: {
         labelName: 'Last Name',
         type: inputType.TEXT,
-        placeholder: 'Enter your last name',
-        valid: true,
-        // value: this.props.profDetails.lastName,
-        // onChange: ''
+        placeholder: 'Enter your last name'
     },
     company: {
         labelName: 'Company',
         type: inputType.TEXT,
-        placeholder: 'Enter your company name',
-        valid: true,
-        // value: this.props.profDetails.company,
-        // onChange: ''
+        placeholder: 'Enter your company name'
     },
     residingState: {
         labelName: 'State',
@@ -31,9 +22,6 @@ export const profDetailsConfig = {
         options: [
             { value: 'Andhra Pradesh', displayValue: 'Andhra Pradesh' },
             { value: 'Telangana', displayValue: 'Telangana' }
-        ],
-        valid: true,
-        // value: this.props.profDetails.residingState,
-        // onChange: ''
+        ]
     }
 }

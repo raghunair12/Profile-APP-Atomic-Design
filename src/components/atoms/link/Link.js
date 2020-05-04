@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 import classes from './Link.module.css';
 
-const link = ({to,children,profDetails}) => (
+const link = ({to,children,profDetails, linkDisabled}) => (
     
     <ul className={classes.LinkItems} >
         <Link
             to={to}
-            className={profDetails.nextDisabled?classes.disabledLink:classes.enabledLink} >
+            className={linkDisabled?classes.disabledLink:classes.enabledLink} >
                 {children}
         </Link>
     </ul>

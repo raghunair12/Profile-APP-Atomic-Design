@@ -2,16 +2,17 @@ import React from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import './App.css';
-import ProfileAppPage from './components/pages/ProfileAppPage/ProfileAppPage';
+import {ProfileAppPageContainer} from './containers/organisms/ProfileAppPageContainer';
 import {ProfessionalInfoPageContainer} from './containers/organisms/ProfessionalInfoPageContainer';
 import {PersonalInfoPageContainer} from './containers/organisms/PersonalInfoPageContainer';
+import {FinalReviewPageContainer} from './containers/organisms/FinalReviewPageContainer';
 
 function App() {
   return (
     <div className="App">
-      <ProfileAppPage />
+      <ProfileAppPageContainer />
       <Switch>
-        <Route path="/review" exact component={ProfessionalInfoPageContainer} />
+        <Route path="/review" exact component={FinalReviewPageContainer} />
         <Route path="/pers" exact component={PersonalInfoPageContainer} />
         <Route path="/" exact component={ProfessionalInfoPageContainer} />
         <Redirect to="/" /> 
