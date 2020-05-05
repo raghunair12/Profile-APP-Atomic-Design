@@ -21,7 +21,9 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
                 type={inputType.TEXT}
                 placeholder={placeholder}
                 onChange={onChange}
-                value={value}
+                // value={value}
+                defaultValue={defaultValue} 
+                disabled= {disabled}
                 className={inputClasses.join(' ')} 
                 />
             );
@@ -31,6 +33,7 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
                 <select 
                 defaultValue={defaultValue} 
                 onChange={(event) => {onChange(event.target.value)} }
+                disabled= {disabled}
                 className={inputClasses.join(' ')}
                 >
                     {options.map(option => (
@@ -47,7 +50,9 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
                 type={inputType.NUMBER}
                 placeholder={placeholder}
                 onChange={onChange}
-                value={value}
+                // value={value}
+                defaultValue={defaultValue} 
+                disabled= {disabled}
                 className={inputClasses.join(' ')} 
                 />
             );
@@ -56,7 +61,9 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
             return (
                 options.map(option => (
                     <React.Fragment key={option.value}>
-                        <input type={inputType.RADIO} name={option.value} defaultValue={option.defaultValue} onChange={(event) =>onChange(event.target.value)} className={inputClasses.join(' ')} />
+                        <input type={inputType.RADIO} name={name} value={option.value} 
+                        disabled= {disabled} checked={defaultValue === option.value?true: false}
+                        onChange={(event) =>onChange(event.target.value)} className={inputClasses.join(' ')} />
                         <Label>{option.displayValue}</Label>
                     </React.Fragment>
                 )
@@ -69,8 +76,8 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
                     <React.Fragment key={option.value}>
                         <input
                         type={inputType.CHECKBOX}
-                        name={option.value}
-                        defaultValue={option.displayValue}
+                        name={name} value={option.value} 
+                        disabled= {disabled} checked={defaultValue[option.value]}
                         onChange={(event) =>onChange(event.target.value)} 
                         className={inputClasses.join(' ')} 
                         />

@@ -8,7 +8,7 @@ import classes from './ProfessionalInfoFields.module.css';
 const professionalInfoFields = ({ onStoreProfessionalDetails, profDetails }) => {
     const onChangeHandler = (updatedValue, id) => {
         profDetails = {
-            ...profDetails,
+            // ...profDetails,
             [id]: updatedValue
         }
         onStoreProfessionalDetails(profDetails);

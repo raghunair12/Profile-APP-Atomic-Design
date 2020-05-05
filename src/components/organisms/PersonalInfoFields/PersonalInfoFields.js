@@ -6,8 +6,17 @@ import { persDetailsConfig } from '../../../constants/PersonalDetailsConfig';
 
 const personalInfoFields = ({ onStorePersonalDetails, persDetails }) => {
     const onChangeHandler = (updatedValue, id) => {
+        // persDetails = {
+        //     // ...persDetails,
+        //     [id]: updatedValue
+        // }
+        id === 'favApp'? persDetails = {
+            [id]:{
+                ...persDetails[id],
+                [updatedValue]: !persDetails[id][updatedValue]
+            }
+        } :
         persDetails = {
-            ...persDetails,
             [id]: updatedValue
         }
         onStorePersonalDetails(persDetails);
@@ -27,7 +36,10 @@ const personalInfoFields = ({ onStorePersonalDetails, persDetails }) => {
                             type={type}
                             placeholder={placeholder}
                             options={options}
+                            name={id}
                             value={value}
+                            disabled={false}
+                            defaultValue={persDetails[id]}
                             onChange={(updatedValue) => onChangeHandler(updatedValue, id)} />
                     )
                 })

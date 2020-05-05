@@ -5,9 +5,10 @@ import { withDebouncedOnChangeHOC } from '../../../hoc/withDebouncedOnChangeHOC'
 class TextInputCell extends React.PureComponent {
   render() {
     const {
-      value,
+      defaultValue,
       type,
       placeholder,
+      disabled,
       onChange,
       className,
     } = this.props;
@@ -16,7 +17,8 @@ class TextInputCell extends React.PureComponent {
           <input 
           type={type} 
           placeholder={placeholder}  
-          value={value}
+          defaultValue={defaultValue}
+          disabled={disabled}
           onChange={onChange}
           className={className}
           />
