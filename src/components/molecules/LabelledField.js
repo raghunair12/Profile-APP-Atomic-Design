@@ -9,7 +9,7 @@ const labelledField = ({ labelName, type, placeholder, options, name, value, def
     // const {labelName,type,placeholder,options} = props
     return (
         <React.Fragment>
-            <Label> {labelName} </Label>
+            <Label labelName={labelName}/>
             <Input type={type}
                     placeholder={placeholder}
                     options={options}
@@ -23,7 +23,7 @@ const labelledField = ({ labelName, type, placeholder, options, name, value, def
 };
 
 labelledField.propTypes = {
-    labelName: PropTypes.string.isRequired,
+    labelName: PropTypes.string,
     type: PropTypes.string,
     placeholder: PropTypes.string,
     options: PropTypes.array,

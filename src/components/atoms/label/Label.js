@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import classes from './Label.module.css';
 
-const label = ({children}) => (
+const label = ({labelName}) => (
     <label className={classes.Label}>
-        {children}
+        {labelName}
     </label>
 );
 
 label.propTypes = {
-    children: PropTypes.string.isRequired
+    labelName: PropTypes.string
 }
 
 export default label;

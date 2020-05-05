@@ -1,14 +1,13 @@
 import values from 'lodash/values';
-// import isBoolean from 'lodash/isBoolean';
+import isBoolean from 'lodash/isBoolean';
 
 const enableNextButton = (details) => {
-    const allFieldsUpdated = values(details).every((k) =>(k));
+    const allFieldsUpdated = values(details).every((k) => 
+    typeof(k) === "boolean"? isBoolean(k) : (k));
     if (details.nextDisabled === allFieldsUpdated) {
-        const newState = {
-            ...details,
+        return {
             nextDisabled: !allFieldsUpdated
         }
-        return newState;
     }
 }
 
