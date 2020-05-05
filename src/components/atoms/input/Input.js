@@ -64,7 +64,7 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
                         <input type={inputType.RADIO} name={name} value={option.value} 
                         disabled= {disabled} checked={defaultValue === option.value?true: false}
                         onChange={(event) =>onChange(event.target.value)} className={inputClasses.join(' ')} />
-                        <Label>{option.displayValue}</Label>
+                        <Label labelName={option.displayValue} />
                     </React.Fragment>
                 )
                 )
@@ -81,7 +81,7 @@ const input = ({ type, placeholder, options, name, value, defaultValue, onChange
                         onChange={(event) =>onChange(event.target.value)} 
                         className={inputClasses.join(' ')} 
                         />
-                        <Label>{option.displayValue}</Label>
+                        <Label labelName={option.displayValue} />
                     </React.Fragment>
                 )
                 )
@@ -97,7 +97,10 @@ input.propTypes = {
     options: PropTypes.array,
     name: PropTypes.string,
     value: PropTypes.string,
-    defaultValue: PropTypes.string,
+    defaultValue: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+      ]),
     onChange: PropTypes.func
 }
 
