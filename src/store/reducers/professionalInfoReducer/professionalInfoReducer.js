@@ -7,8 +7,7 @@ const initialState = {
     firstName: '',
     lastName: '',
     company: '',
-    residingState: 'Andhra Pradesh',
-    nextDisabled: true
+    residingState: 'Andhra Pradesh'
 }
 
 const reducer = (state = initialState, action) => {

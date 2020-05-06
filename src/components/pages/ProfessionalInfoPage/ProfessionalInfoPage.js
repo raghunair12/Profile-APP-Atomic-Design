@@ -5,7 +5,7 @@ import SubHeader from '../../atoms/headers/SubHeader/SubHeader';
 import { ProfessionalInfoFieldsContainer } from '../../../containers/organisms/ProfessionalInfoFieldsContainer';
 import Button from '../../atoms/button/Button';
 
-const professionalInfoPage = ({ profDetails,history }) => {
+const professionalInfoPage = ({profNextButtonDisable, history }) => {
     const onClickHandler = () =>{
         history.push('/pers');
     }
@@ -14,14 +14,14 @@ const professionalInfoPage = ({ profDetails,history }) => {
             <SubHeader>Professional Details</SubHeader>
             <ProfessionalInfoFieldsContainer />
             <Button
-                disabled={profDetails.nextDisabled}
+                disabled={profNextButtonDisable}
                 onClick={onClickHandler}>Next</Button>
         </React.Fragment>
     );
 }
 
 professionalInfoPage.propTypes = {
-    profDetails: PropTypes.object,
+    profNextButtonDisable: PropTypes.bool,
     history: PropTypes.object
 }
 
