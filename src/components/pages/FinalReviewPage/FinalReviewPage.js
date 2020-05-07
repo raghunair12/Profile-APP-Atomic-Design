@@ -4,7 +4,7 @@ import SubHeader from '../../atoms/headers/SubHeader/SubHeader';
 import { FinalReviewFieldsContainer } from '../../../containers/organisms/FinalReviewFieldsContainer';
 import Button from '../../atoms/button/Button';
 
-const finalReviewPage = ({ profDetails,persDetails, history }) => {
+const finalReviewPage = ({ profDetails,persDetails,persNextButtonDisabled, history }) => {
     const onClickSubmitHandler = () =>{
         console.log(profDetails, persDetails);
     }
@@ -18,7 +18,7 @@ const finalReviewPage = ({ profDetails,persDetails, history }) => {
             <Button
                 onClick={onClickPreviousHandler}>Previous</Button>
             <Button
-                disabled={persDetails.nextDisabled}
+                disabled={persNextButtonDisabled}
                 onClick={onClickSubmitHandler}>Submit</Button>
         </React.Fragment>
     );

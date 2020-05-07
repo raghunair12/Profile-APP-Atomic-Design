@@ -1,5 +1,5 @@
 import * as actionTypes from '../../actions/actionTypes';
-import enableNextButton from '../../../containers/atoms/NextButtonValidation';
+import enableNextButton from '../../../validations/NextButtonValidation/NextButtonValidation';
 // import values from 'lodash/values';
 // import isBoolean from 'lodash/isBoolean';
 

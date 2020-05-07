@@ -1,5 +1,5 @@
 import * as actionTypes from '../../actions/actionTypes';
-import enableNextButton from '../../../containers/atoms/NextButtonValidation';
+import enableNextButton from '../../../validations/NextButtonValidation/NextButtonValidation';
 
 const initialState = {
     gender: '',
@@ -10,8 +10,7 @@ const initialState = {
         whatsapp: false,
         facebook: false
     },
-    weight: '',
-    nextDisabled: true
+    weight: ''
 }
 
 const reducer = (state = initialState, action) => {

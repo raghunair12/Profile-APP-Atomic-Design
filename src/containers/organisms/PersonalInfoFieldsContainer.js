@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import PersonalInfoFields from '../../components/organisms/PersonalInfoFields/PersonalInfoFields';
+import { personalInfoSelector } from '../../selectors/personalInfoSelector/personalInfoSelector';
 
 export const mapStateToProps = state => {
     return {
-        persDetails: state.pers
+        persDetails: personalInfoSelector(state)
     }
 };
 

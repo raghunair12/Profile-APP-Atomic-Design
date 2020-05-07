@@ -5,7 +5,7 @@ import SubHeader from '../../atoms/headers/SubHeader/SubHeader';
 import { PersonalInfoFieldsContainer } from '../../../containers/organisms/PersonalInfoFieldsContainer';
 import Button from '../../atoms/button/Button';
 
-const personalInfoPage = ({ persDetails, history }) => {
+const personalInfoPage = ({ persNextButtonDisable, history }) => {
     const onClickNextHandler = () => {
         history.push('/review');
     }
@@ -19,14 +19,14 @@ const personalInfoPage = ({ persDetails, history }) => {
             <Button
                 onClick={onClickPreviousHandler}>Previous</Button>
             <Button
-                disabled={persDetails.nextDisabled}
+                disabled={persNextButtonDisable}
                 onClick={onClickNextHandler}>Next</Button>
         </React.Fragment>
     );
 }
 
 personalInfoPage.propTypes = {
-    persDetails: PropTypes.object,
+    persNextButtonDisable: PropTypes.bool,
     history: PropTypes.object
 }
 

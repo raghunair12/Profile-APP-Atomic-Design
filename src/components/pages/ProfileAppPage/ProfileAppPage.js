@@ -1,18 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import MainHeader from '../../atoms/headers/MainHeader/MainHeader';
 import ToolBar from '../../atoms/toolBar/ToolBar';
-import { LinkContainer } from '../../../containers/atoms/LinkContainer';
+import Link from '../../atoms/link/Link';
 
-const profileAppPage = ({ persDetails, profNextButtonDisable}) => (
+const profileAppPage = ({ persNextButtonDisable, profNextButtonDisable}) => (
     <React.Fragment>
         <MainHeader>Profile App</MainHeader>
         <ToolBar>
-            <LinkContainer to="/" linkDisabled= {false}>Professional Information</LinkContainer>
-            <LinkContainer to="/pers" linkDisabled= {profNextButtonDisable}>Personal Information</LinkContainer>
-            <LinkContainer to="/review" linkDisabled= {profNextButtonDisable || persDetails.nextDisabled}>Final Review</LinkContainer>
+            <Link to="/" linkDisabled= {false}>Professional Information</Link>
+            <Link to="/pers" linkDisabled= {profNextButtonDisable}>Personal Information</Link>
+            <Link to="/review" linkDisabled= {profNextButtonDisable || persNextButtonDisable}>Final Review</Link>
         </ToolBar>
     </React.Fragment>
 );
+
+profileAppPage.propTypes = {
+    profNextButtonDisable: PropTypes.bool,
+    persNextButtonDisable: PropTypes.bool
+}
+
+profileAppPage.defaultProps ={
+    profNextButtonDisable: false,
+    persNextButtonDisable: false
+}
 
 export default profileAppPage;

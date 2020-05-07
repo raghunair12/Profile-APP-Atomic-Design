@@ -18,7 +18,11 @@ const link = ({to,children,profDetails, linkDisabled}) => (
 link.propTypes = {
     to: PropTypes.string.isRequired,
     children: PropTypes.string,
-    profDetails: PropTypes.object
+    linkDisabled: PropTypes.bool
+}
+
+link.defaultProps ={
+    linkDisabled: false
 }
 
 export default link;
