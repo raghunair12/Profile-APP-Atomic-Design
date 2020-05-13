@@ -6,3 +6,9 @@ export const storeProfessionalDetails = (professionalDetails) =>{
         newProfessionalInfo: professionalDetails
     };
 };
+
+export const resetProfessionalDetails = () => {
+    return{
+        type: actionTypes.PROFESSIONAL_DETAILS_RESET
+    };
+};

@@ -26,6 +26,11 @@ const reducer = (state = initialState, action) => {
                 ...nextButtonUpdatedState
             };
 
+        case actionTypes.PROFESSIONAL_DETAILS_RESET:
+            return {
+                ...initialState
+            }
+
         default:
             return state;
     }

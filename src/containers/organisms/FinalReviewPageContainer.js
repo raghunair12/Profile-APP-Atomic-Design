@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import FinalReviewPage from '../../components/pages/FinalReviewPage/FinalReviewPage';
 import { professionalInfoSelector } from '../../selectors/professionalInfoSelector/professionalInfoSelector';
 import { personalInfoSelector } from '../../selectors/personalInfoSelector/personalInfoSelector';
+import * as actions from '../../store/actions/index';
 
 export const mapStateToProps = state => {
     return{
@@ -10,4 +11,11 @@ export const mapStateToProps = state => {
     }
 }
 
-export const FinalReviewPageContainer = connect(mapStateToProps) (FinalReviewPage)
+export const mapDispatchToProps = dispatch => {
+    return{
+        onResetProfessionalDetails: () => dispatch(actions.resetProfessionalDetails()),
+        onResetPersonalDetails: () => dispatch(actions.resetPersonalDetails())
+    }
+}
+
+export const FinalReviewPageContainer = connect(mapStateToProps,mapDispatchToProps) (FinalReviewPage)

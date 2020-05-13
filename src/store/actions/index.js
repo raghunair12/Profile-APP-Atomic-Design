@@ -1,7 +1,9 @@
 export {
-    storeProfessionalDetails
+    storeProfessionalDetails,
+    resetProfessionalDetails
 } from './professionalInfoActions';
 
 export {
-    storePersonalDetails
+    storePersonalDetails,
+    resetPersonalDetails
 } from './personalInfoActions';

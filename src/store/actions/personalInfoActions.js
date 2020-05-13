@@ -6,3 +6,9 @@ export const storePersonalDetails = (personalDetails) =>{
         newPersonalInfo: personalDetails
     };
 };
+
+export const resetPersonalDetails =() => {
+    return {
+        type: actionTypes.PERSONAL_DETAILS_RESET
+    };
+};
