@@ -7,3 +7,7 @@ export {
     storePersonalDetails,
     resetPersonalDetails
 } from './personalInfoActions';
+
+export {
+    storeDetails
+} from './storeDetailsActions';

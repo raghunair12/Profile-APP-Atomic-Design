@@ -1,8 +1,9 @@
 import * as actionTypes from './actionTypes';
 
-export const storeDetails = (details) => {
+export const storeDetails = (body,headers) => {
     return{
         type: actionTypes.STORE_DETAILS,
-        newDetails: details
+        body: body,
+        headers: headers
     };
 };

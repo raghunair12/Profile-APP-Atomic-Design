@@ -17,23 +17,25 @@ const table = ({ data, onDeleteHandler }) => {
                     <div className={classes.cell} > Favourite App </div>
                     <div className={classes.cell} > Weight </div>
                 </div>
-                {data.map((detail, index) => (
+                {data.map((detail, index) => {
+                    const {id,firstName,lastName,company,residingState,gender,phoneNo,favMovie,favApp,weight} = detail;
+                    return(
                 <div className={classes.row} key={index} >
-                    <div className={classes.cell} > {detail.firstName} </div>
-                    <div className={classes.cell} > {detail.lastName} </div>
-                    <div className={classes.cell} > {detail.company} </div>
-                    <div className={classes.cell} > {detail.residingState} </div>
-                    <div className={classes.cell} > {detail.gender} </div>
-                    <div className={classes.cell} > {detail.phoneNo} </div>
-                    <div className={classes.cell} > {detail.favMovie} </div>
-                    {detail.favApp.length > 1?
-                        <div className={classes.cell} > {detail.favApp[0]} , {detail.favApp[1]} </div>
-                        : <div className={classes.cell} > {detail.favApp[0]} </div>
+                    <div className={classes.cell} > {firstName} </div>
+                    <div className={classes.cell} > {lastName} </div>
+                    <div className={classes.cell} > {company} </div>
+                    <div className={classes.cell} > {residingState} </div>
+                    <div className={classes.cell} > {gender} </div>
+                    <div className={classes.cell} > {phoneNo} </div>
+                    <div className={classes.cell} > {favMovie} </div>
+                    {favApp.length > 1?
+                        <div className={classes.cell} > {favApp[0]} , {favApp[1]} </div>
+                        : <div className={classes.cell} > {favApp[0]} </div>
                     }
-                    <div className={classes.cell} > {detail.weight} </div>
-                    <Button onClick={()=>onDeleteHandler(detail.id)} > Delete</Button>
+                    <div className={classes.cell} > {weight} </div>
+                    <Button onClick={()=>onDeleteHandler(id,firstName,lastName)} > Delete</Button>
                 </div>
-                ))}
+                )})}
             </div>
     )
 }
