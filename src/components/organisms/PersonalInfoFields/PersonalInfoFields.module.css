@@ -1,8 +1,8 @@
 .PersonalInfoFields {
-	margin: 20px auto;
+	margin: auto;
 	max-width: 30%;
 	position: relative;
-	top: -115pt;
+	/* top: -115pt; */
 	box-shadow: 0 2px 3px #ccc;
 	border: 1px solid #ccc;
 	padding: 10px 20px;

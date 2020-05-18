@@ -26,6 +26,13 @@ const finalReviewPage = ({ profDetails,
         // });
         // const responseData = await response.json();
         // console.log(responseData)
+        let apps= [];
+        Object.keys(persDetails.favApp).map(p => {
+            if(persDetails.favApp[p]){
+                apps.push(p)
+            }
+            return apps;
+        })
         const headers = {
             'Content-Type': 'application/json'
         }
@@ -37,7 +44,7 @@ const finalReviewPage = ({ profDetails,
             gender: persDetails.gender,
             favMovie: persDetails.favMovie,
             phoneNo: persDetails.phoneNo,
-            favApp: persDetails.favApp,
+            favApp: apps,
             weight: persDetails.weight
         })
         try {
@@ -47,7 +54,7 @@ const finalReviewPage = ({ profDetails,
             console.log(response);
             onResetProfessionalDetails();
             onResetPersonalDetails();
-            history.push('/');
+            history.push('/details');
         } catch (err) {
             console.log(err);
         }

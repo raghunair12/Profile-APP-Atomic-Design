@@ -12,6 +12,7 @@ const profileAppPage = ({ persNextButtonDisable, profNextButtonDisable}) => (
             <Link to="/" linkDisabled= {false}>Professional Information</Link>
             <Link to="/pers" linkDisabled= {profNextButtonDisable}>Personal Information</Link>
             <Link to="/review" linkDisabled= {profNextButtonDisable || persNextButtonDisable}>Final Review</Link>
+            <Link to="/details" linkDisabled= {false}>All User Details</Link>
         </ToolBar>
     </React.Fragment>
 );
