@@ -63,7 +63,7 @@ const finalReviewPage = ({ profDetails,
     // }
     // //the above onClickSubmitHandler code is used before to SAGA
 
-    const onClickSubmitHandler = async() => {
+    const onClickSubmitHandler = () => {
         let apps = [];
         Object.keys(persDetails.favApp).map(p => {
             if (persDetails.favApp[p]) {
@@ -71,10 +71,10 @@ const finalReviewPage = ({ profDetails,
             }
             return apps;
         })
-        const headers = {
-            'Content-Type': 'application/json'
-        }
-        const body = JSON.stringify({
+        // const headers = {
+        //     'Content-Type': 'application/json'
+        // }
+        const body = {
             firstName: profDetails.firstName,
             lastName: profDetails.lastName,
             company: profDetails.company,
@@ -84,11 +84,8 @@ const finalReviewPage = ({ profDetails,
             phoneNo: persDetails.phoneNo,
             favApp: apps,
             weight: persDetails.weight
-        })
-        console.log('start');
-        await onStoreDetails(body, headers);
-        console.log('end');
-        history.push('/details');
+        }
+        onStoreDetails(body);
     }
 
     const onClickPreviousHandler = () => {

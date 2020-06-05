@@ -11,3 +11,10 @@ export {
 export {
     storeDetails
 } from './storeDetailsActions';
+
+export {
+    fetchAllDetails,
+    fetchedDetails,
+    deleteDetail,
+    updateState
+} from './FetchAllDetailsActions';

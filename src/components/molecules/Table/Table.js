@@ -1,42 +1,39 @@
 import React from 'react';
 
 import Button from '../../atoms/button/Button';
+import TableCell from '../../atoms/TableCell/TableCell';
 import classes from './Table.module.css';
 
 const table = ({ data, onDeleteHandler }) => {
+    const headersArray = ['First Name', 'Last Name', 'Company', 'State', 'Gender',
+        'Phone Number', 'Favourite Movie', 'Favourite App', 'Weight'];
     return (
-            <div className={classes.table}>
-                <div className={classes.header} >
-                    <div className={classes.cell} > First Name </div>
-                    <div className={classes.cell} > Last Name </div>
-                    <div className={classes.cell} > Company </div>
-                    <div className={classes.cell} > State </div>
-                    <div className={classes.cell} > Gender </div>
-                    <div className={classes.cell} > Phone Number </div>
-                    <div className={classes.cell} > Favourite Movie </div>
-                    <div className={classes.cell} > Favourite App </div>
-                    <div className={classes.cell} > Weight </div>
-                </div>
-                {data.map((detail, index) => {
-                    const {id,firstName,lastName,company,residingState,gender,phoneNo,favMovie,favApp,weight} = detail;
-                    return(
-                <div className={classes.row} key={index} >
-                    <div className={classes.cell} > {firstName} </div>
-                    <div className={classes.cell} > {lastName} </div>
-                    <div className={classes.cell} > {company} </div>
-                    <div className={classes.cell} > {residingState} </div>
-                    <div className={classes.cell} > {gender} </div>
-                    <div className={classes.cell} > {phoneNo} </div>
-                    <div className={classes.cell} > {favMovie} </div>
-                    {favApp.length > 1?
-                        <div className={classes.cell} > {favApp[0]} , {favApp[1]} </div>
-                        : <div className={classes.cell} > {favApp[0]} </div>
-                    }
-                    <div className={classes.cell} > {weight} </div>
-                    <Button onClick={()=>onDeleteHandler(id,firstName,lastName)} > Delete</Button>
-                </div>
-                )})}
+        <div className={classes.table}>
+            <div className={classes.header} >
+                {headersArray.map((h, index) => (
+                    <TableCell
+                        key={index}
+                        value={h} />
+                ))}
             </div>
+            {data.map((detail, index) => {
+                const { id, firstName, lastName, company, residingState, gender, phoneNo, favMovie, favApp, weight } = detail;
+                return (
+                    <div className={classes.row} key={index} >
+                        <TableCell value={firstName} />
+                        <TableCell value={lastName} />
+                        <TableCell value={company} />
+                        <TableCell value={residingState} />
+                        <TableCell value={gender} />
+                        <TableCell value={phoneNo} />
+                        <TableCell value={favMovie} />
+                        <TableCell value={favApp.join()} />
+                        <TableCell value={weight} />
+                        <Button onClick={() => onDeleteHandler(id, firstName, lastName)} > Delete</Button>
+                    </div>
+                )
+            })}
+        </div>
     )
 }
 

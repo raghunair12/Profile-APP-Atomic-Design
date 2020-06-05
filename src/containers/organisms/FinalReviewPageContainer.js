@@ -15,7 +15,7 @@ export const mapDispatchToProps = dispatch => {
     return{
         onResetProfessionalDetails: () => dispatch(actions.resetProfessionalDetails()),
         onResetPersonalDetails: () => dispatch(actions.resetPersonalDetails()),
-        onStoreDetails: (body,headers)=> dispatch(actions.storeDetails(body,headers))
+        onStoreDetails: (body)=> dispatch(actions.storeDetails(body))
     }
 }
 

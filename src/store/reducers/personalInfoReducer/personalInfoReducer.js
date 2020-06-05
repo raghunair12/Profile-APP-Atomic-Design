@@ -5,7 +5,6 @@ const initialState = {
     gender: '',
     favMovie: '',
     phoneNo: '',
-    // favApp:'',
     favApp: {
         whatsapp: false,
         facebook: false
